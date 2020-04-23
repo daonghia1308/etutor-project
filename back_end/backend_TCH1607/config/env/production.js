@@ -316,7 +316,7 @@ module.exports = {
   *                                                                         *
   ***************************************************************************/
   custom: {
-    baseUrl: 'https://example.com',
+    baseUrl: 'https://etutor-project.herokuapp.com/',
     internalEmailAddress: 'support@example.com',
 
 
