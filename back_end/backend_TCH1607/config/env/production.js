@@ -21,14 +21,12 @@
 
 module.exports = {
 
-
-  /**************************************************************************
-  *                                                                         *
-  * Tell Sails what database(s) it should use in production.                *
-  *                                                                         *
-  * (https://sailsjs.com/config/datastores)                                 *
-  *                                                                         *
-  **************************************************************************/
+  hooks: {
+    morgan: false
+  },
+  uploads: {
+    adapter: require('skipper-disk')
+  },
   datastores: {
 
     /***************************************************************************
@@ -47,8 +45,8 @@ module.exports = {
     *                                                                          *
     ***************************************************************************/
     default: {
-      // adapter: 'sails-mysql',
-      // url: 'mysql://user:password@host:port/database',
+      adapter: 'sails-mysql',
+      url: 'mysql://TCN5XIB4qJ:G5RDqYuczM@remotemysql.com:3306/TCN5XIB4qJ',
       //--------------------------------------------------------------------------
       //  /\   To avoid checking it in to version control, you might opt to set
       //  ||   sensitive credentials like `url` using an environment variable.
@@ -80,27 +78,8 @@ module.exports = {
 
   models: {
 
-    /***************************************************************************
-    *                                                                          *
-    * To help avoid accidents, Sails automatically sets the automigration      *
-    * strategy to "safe" when your app lifts in production mode.               *
-    * (This is just here as a reminder.)                                       *
-    *                                                                          *
-    * More info:                                                               *
-    * https://sailsjs.com/docs/concepts/models-and-orm/model-settings#?migrate *
-    *                                                                          *
-    ***************************************************************************/
-    migrate: 'safe',
+    migrate: 'alter',
 
-    /***************************************************************************
-    *                                                                          *
-    * If, in production, this app has access to physical-layer CASCADE         *
-    * constraints (e.g. PostgreSQL or MySQL), then set those up in the         *
-    * database and uncomment this to disable Waterline's `cascadeOnDestroy`    *
-    * polyfill.  (Otherwise, if you are using a databse like Mongo, you might  *
-    * choose to keep this enabled.)                                            *
-    *                                                                          *
-    ***************************************************************************/
     // cascadeOnDestroy: false,
 
   },
@@ -121,52 +100,18 @@ module.exports = {
     shortcuts: false,
   },
 
-
-
-  /***************************************************************************
-  *                                                                          *
-  * Configure your security settings for production.                         *
-  *                                                                          *
-  * IMPORTANT:                                                               *
-  * If web browsers will be communicating with your app, be sure that        *
-  * you have CSRF protection enabled.  To do that, set `csrf: true` over     *
-  * in the `config/security.js` file (not here), so that CSRF app can be     *
-  * tested with CSRF protection turned on in development mode too.           *
-  *                                                                          *
-  ***************************************************************************/
   security: {
 
-    /***************************************************************************
-    *                                                                          *
-    * If this app has CORS enabled (see `config/security.js`) with the         *
-    * `allowCredentials` setting enabled, then you should uncomment the        *
-    * `allowOrigins` whitelist below.  This sets which "origins" are allowed   *
-    * to send cross-domain (CORS) requests to your Sails app.                  *
-    *                                                                          *
-    * > Replace "https://example.com" with the URL of your production server.  *
-    * > Be sure to use the right protocol!  ("http://" vs. "https://")         *
-    *                                                                          *
-    ***************************************************************************/
     cors: {
-      // allowOrigins: [
-      //   'https://example.com',
-      // ]
+      allRoutes: true,
+      allowOrigins: '*',
+      allowCredentials: false,
+      allowRequestHeaders: 'Content-Type, Accept,Authorization',
+      allowRequestMethods: 'GET, POST, PUT,PATCH,DELETE',
     },
 
   },
 
-
-
-  /***************************************************************************
-  *                                                                          *
-  * Configure how your app handles sessions in production.                   *
-  *                                                                          *
-  * (https://sailsjs.com/config/session)                                     *
-  *                                                                          *
-  * > If you have disabled the "session" hook, then you can safely remove    *
-  * > this section from your `config/env/production.js` file.                *
-  *                                                                          *
-  ***************************************************************************/
   session: {
 
     /***************************************************************************
@@ -374,20 +319,6 @@ module.exports = {
     baseUrl: 'https://example.com',
     internalEmailAddress: 'support@example.com',
 
-    // mailgunDomain: 'mg.example.com',
-    // mailgunSecret: 'key-prod_fake_bd32301385130a0bafe030c',
-    // stripeSecret: 'sk_prod__fake_Nfgh82401348jaDa3lkZ0d9Hm',
-    //--------------------------------------------------------------------------
-    // /\   OR, to avoid checking them in to version control, you might opt to
-    // ||   set sensitive credentials like these using environment variables.
-    //
-    // For example:
-    // ```
-    // sails_custom__mailgunDomain=mg.example.com
-    // sails_custom__mailgunSecret=key-prod_fake_bd32301385130a0bafe030c
-    // sails_custom__stripeSecret=sk_prod__fake_Nfgh82401348jaDa3lkZ0d9Hm
-    // ```
-    //--------------------------------------------------------------------------
 
   },
 

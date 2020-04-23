@@ -24,6 +24,7 @@
     "sails-mysql": "^1.0.1",
     "sharp": "^0.25.2",
     "shortid": "^2.2.15",
+    "skipper-disk": "^0.5.12",
     "socket.io": "^2.3.0",
     "winston": "^2.4.3",
     "winston-daily-rotate-file": "^3.2.1"
