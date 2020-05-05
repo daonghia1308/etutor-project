@@ -33,7 +33,7 @@ module.exports = {
     }
     return {
       status: true,
-      url: process.env.NODE_ENV === "production" ? 'https://etutor-project.herokuapp.com/' + fileUpload.serverFileName :'http://localhost:1337/' + fileUpload.serverFileName
+      url: process.env.NODE_ENV === "production" ? 'https://etutor-project.herokuapp.com/' + fileUpload.serverFileName 
     };
   },
   attributes: {
