@@ -42,14 +42,14 @@ module.exports = {
       if (!id) {
         return exits.fail({
           code: 1,
-          message: "Người dùng không tồn tại!"
+          message: "User not exist!"
         })
       }
       let findUser = await User.findOne({email: email});
       if(findUser) {
         return exits.fail({
           code: 1,
-          message: 'Email đã tồn tại!'
+          message: 'Email has been exist!'
         })
       }
       await User.update(id).set({
@@ -65,7 +65,7 @@ module.exports = {
       return exits.serverError({
         code: 1,
         err: error,
-        message: 'Hệ thống gặp vấn đề, quay lại sau!'
+        message: 'System error'
       })
     }
 

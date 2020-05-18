@@ -35,7 +35,7 @@ module.exports = {
       if (!findUser) {
         return exits.fail({
           code: 1,
-          message: "Người dùng không tồn tại!"
+          message: "User not exist!"
         })
       }
       if (findUser.role == 2) {
@@ -55,14 +55,14 @@ module.exports = {
       }
       return exits.success({
         code: 0,
-        message: "Xóa người dùng thành công!"
+        message: "Delete success!"
       })
 
     } catch (error) {
       return exits.serverError({
         code: 1,
         err: error,
-        message: 'Hệ thống gặp chút vấn đề, quay lại sau!'
+        message: 'System error!'
       })
     }
   }

@@ -53,13 +53,13 @@ module.exports = {
       await Post.create(data);
       return exits.success({
         code: 0,
-        message: "Đăng bài thành công!"
+        message: "Success!"
       }) 
     } catch (error) {
       return exits.serverError({
         code: 1,
         err: error,
-        message: "Hệ thống gặp vấn đề, quay lại sau!"
+        message: "System error!"
       })
     }
   }

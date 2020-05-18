@@ -33,7 +33,7 @@ module.exports = {
       if(!time || !classId || !title) {
         return exits.fail({
           code: 1,
-          message: "Thời gian cuộc họp không được để trống!"
+          message: "Time of meeting must be filled!"
         })
       }
       let findClass = await Class.findOne({id: classId}).populate('students')
@@ -57,7 +57,7 @@ module.exports = {
       return exits.serverError({
         code: 1,
         err: error,
-        message: "Hệ thống gặp vấn dề quay lại sau"
+        message: "System error!"
       })
     }
   }

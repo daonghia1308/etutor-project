@@ -36,21 +36,21 @@ module.exports = {
       if(!username || !password) {
         return exits.fail({
           code: 1,
-          message: 'Username, password không được để trống!'
+          message: 'Username, password must be filled!'
         })
       }
       let findUser = await User.findOne({username});
       if(!findUser) {
         return exits.fail({
           code: 1,
-          message: 'Người dùng không tồn tại!'
+          message: 'User not exist!'
         })
       }
       let match = await sails.helpers.password.check.with({password, hashPassword: findUser.password});
       if(!match) {
         return exits.fail({
           code: 1,
-          message: 'Sai thông tin đăng nhập!'
+          message: 'Wrong password!'
         })
       }
       delete findUser.password;
@@ -58,7 +58,15 @@ module.exports = {
       let token = sails.helpers.jwt.sign(findUser)
       if(findUser.role == 3) {
         let findClass = await Class.findOne({students: findUser.id});
-        findUser.class = findClass.id
+        if (findClass) {
+          findUser.class = findClass.id
+        }
+        else {
+          return exist.fail({
+            code: 1,
+            message: "Student didn't allocate for tutor!"
+          })
+        }
       }
       return exits.success({
         code: 0,
@@ -69,7 +77,7 @@ module.exports = {
       return exits.serverError({
         code: 1,
         err: error,
-        message: 'Hệ thống gặp chút vấn đề, quay lại sau!'
+        message: 'System error!'
       }) 
     }
   }

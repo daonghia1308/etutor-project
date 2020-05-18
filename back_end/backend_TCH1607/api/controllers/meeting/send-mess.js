@@ -49,7 +49,7 @@ module.exports = {
       return exits.serverError({
         code: 1,
         err: error,
-        message: "He thong gap van de quay lai sau!"
+        message: "System error!"
       })
     }
   }

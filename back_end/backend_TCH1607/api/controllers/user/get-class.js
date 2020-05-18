@@ -34,7 +34,7 @@ module.exports = {
       if (!findUser) {
         return exits.fail({
           code: 1,
-          message: "Người dùng không tồn tại!"
+          message: "User not exist!"
         })
       }
       if(type == "all") {
@@ -53,7 +53,7 @@ module.exports = {
       return exits.serverError({
         code: 1,
         err: error,
-        message: 'Hệ thống gặp chút vấn đề, quay lại sau!'
+        message: 'System error!'
       })
     }
   }

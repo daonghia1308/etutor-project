@@ -50,7 +50,7 @@ module.exports = {
       return exits.serverError({
         code: 1,
         err: error,
-        message: "Hệ thống gặp vấn đề quay lại sau!"
+        message: "System error!"
       })
     }
   }

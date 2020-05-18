@@ -36,21 +36,21 @@ module.exports = {
       if(!username || !password || !fullName || !phone || !email || !role) {
         return exits.fail({
           code: 1,
-          message: "Cần nhập đủ dữ liệu để tạo người dùng!"
+          message: "Missing user's information!"
         })
       }
       let findUser = await User.findOne({username: username});
       if(findUser) {
         return exits.fail({
           code: 1,
-          message: "Username đã tồn tại!"
+          message: "Username has been existed!"
         })
       }
       let findUserEmail = await User.findOne({email: email});
       if(findUserEmail) {
         return exits.fail({
           code: 1,
-          message: "Email đã tồn tại!"
+          message: "Email has been existed!"
         })
       }
       password = await sails.helpers.password.hash(password);
@@ -65,13 +65,13 @@ module.exports = {
       await User.create(data);
       return exits.success({
         code: 0,
-        message: "Tạo người dùng thành công!"
+        message: "Create success!"
       })
     } catch (error) {
       return exits.serverError({
         code: 1,
         err: error,
-        message: "Hệ thống gặp chút vấn đề, quay lại sau!"
+        message: "System error!"
       })
     }
   }
