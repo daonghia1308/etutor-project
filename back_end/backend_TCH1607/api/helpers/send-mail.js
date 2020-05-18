@@ -30,7 +30,7 @@ module.exports = {
       let transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-          user: "daonghia1308@gmail.com",
+          user: "etutortch1607@gmail.com",
           pass: "Nghia1999"
         }
       });
