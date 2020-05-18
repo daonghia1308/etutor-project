@@ -80,6 +80,7 @@ module.exports = {
 
     onlyAllowOrigins: [
       'https://etutor-project.herokuapp.com',
+      'https://etutor-tch1607.herokuapp.com'
     ],
 
   },
