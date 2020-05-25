@@ -51,6 +51,10 @@ module.exports = {
         class: inputs.class
       }
       await Post.create(data);
+      await ActionLog.create({
+        name: `Created post in class`,
+        user: id
+      })
       return exits.success({
         code: 0,
         message: "Success!"
