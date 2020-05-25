@@ -35,7 +35,7 @@ module.exports = {
         }
       });
       let info = await transporter.sendMail({
-        from: "daonghia1308@gmail.com",
+        from: "etutortch1607@gmail.com",
         to: data.email,
         subject: `Notify the meeting`,
         html: `<div>
