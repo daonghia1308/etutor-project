@@ -46,12 +46,6 @@ module.exports = {
         })
       }
       let findUser = await User.findOne({email: email});
-      if(findUser) {
-        return exits.fail({
-          code: 1,
-          message: 'Email has been exist!'
-        })
-      }
       await User.update(id).set({
         fullName,
         phone,

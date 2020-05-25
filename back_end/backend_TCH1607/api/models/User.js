@@ -26,8 +26,7 @@ module.exports = {
     },
     email: {
       type: 'string',
-      isEmail: true,
-      unique: true
+      isEmail: true
     },
     role: {
       model: 'Role'
