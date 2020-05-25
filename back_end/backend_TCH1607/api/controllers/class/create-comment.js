@@ -44,6 +44,10 @@ module.exports = {
         content
       }
       let createComment = await PostComment.create(data).fetch();
+      await ActionLog.create({
+        name: `Created comment`,
+        user: id
+      })
       return exits.success({
         code: 0,
         data: createComment,
