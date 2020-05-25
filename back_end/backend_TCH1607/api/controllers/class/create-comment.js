@@ -45,7 +45,7 @@ module.exports = {
       }
       let createComment = await PostComment.create(data).fetch();
       await ActionLog.create({
-        name: `Created comment`,
+        name: `Created comment ${content}`,
         user: id
       })
       return exits.success({

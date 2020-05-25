@@ -52,7 +52,7 @@ module.exports = {
       }
       await Post.create(data);
       await ActionLog.create({
-        name: `Created post in class`,
+        name: `Created post content ${content}`,
         user: id
       })
       return exits.success({
