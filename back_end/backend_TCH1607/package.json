@@ -14,7 +14,7 @@
     "grunt": "1.0.4",
     "jsonwebtoken": "^8.5.1",
     "moment": "^2.24.0",
-    "nodemailer": "^6.4.6",
+    "nodemailer": "^6.4.16",
     "path": "^0.12.7",
     "sails": "^1.2.3",
     "sails-hook-grunt": "^4.0.0",
