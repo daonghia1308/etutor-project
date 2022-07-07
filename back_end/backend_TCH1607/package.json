@@ -13,7 +13,7 @@
     "fs": "0.0.1-security",
     "grunt": "1.0.4",
     "jsonwebtoken": "^8.5.1",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "nodemailer": "^6.4.6",
     "path": "^0.12.7",
     "sails": "^1.2.3",
